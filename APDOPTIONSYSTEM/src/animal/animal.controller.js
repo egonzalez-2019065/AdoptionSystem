@@ -75,16 +75,19 @@ export const getAllAnimals = async (req, res) => {
  
 export const searchAnimal = async (req, res) => {
     try {
+        // buscar al animal
         let { search } = req.query;
+        // traer datos
         let animals = await Animal.find({
             $or: [
                 { name: { $regex: search, $options: 'i' } },
                 { type: { $regex: search, $options: 'i' } }
             ]
         });
+        // responder 
         return res.send({ animals });
     } catch (err) {
-        console.error(err);
-        return res.status(500).send({ message: 'Error searching for animals', error: err });
+        console.log(err);
+        return res.status(500).send({ message: 'Error searching for animals'});
     }
 };

@@ -40,3 +40,23 @@ export const checkUpdate = (data, userId) => {
        return false 
     }
 }
+// ------------------------------------- ANIMALS ------------------ 
+
+
+// Validar actualizacion 
+export const checkUpdateAnimal = (data, idAnimal) => {
+    if(idAnimal){
+        if(
+            Object.entries(data).length === 0 ||
+            data.type || 
+            data.type == '' ||
+            data.keeper || 
+            data.keeper == ''
+        ) {
+            return false 
+        }
+        return true
+    }else{
+        return false 
+    }
+}

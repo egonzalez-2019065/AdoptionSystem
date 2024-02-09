@@ -10,6 +10,7 @@ import helmet from 'helmet'
 import cors from 'cors'
 import {config } from "dotenv"
 import userRoutes from '../src/user/user.routes.js'
+import animalRoutes from '../src/animal/animal.routes.js'
 
 
 // Configuraciones
@@ -27,6 +28,7 @@ app.use(morgan('dev')) // logs de solicitudes al servidor http
 
 // Declaración de rutas
 app.use(userRoutes)
+app.use(animalRoutes)
 
 
 // Levantar el servidor 

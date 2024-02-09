@@ -68,7 +68,7 @@ export const update = async(req, res) => { //Datos generales pero no para la pas
             {new:true} //Datos que se mandan a actualizar
         )
         // Validar la actualización
-        if(!updateUser) return res.status(401).send({message: 'User not found and not update'})
+        if(!updateUser) return res.status(404).send({message: 'User not found and not update'})
         // Responder al usuario
         return res.send({message: 'Update user', updateUser})
     }catch(err){

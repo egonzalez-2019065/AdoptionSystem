@@ -1,23 +1,11 @@
-import mongoose from "mongoose"
+import express from 'express'
+import { registerAnimal, deleteAnimal, updateAnimal, getAllAnimals } from './animal.controller.js'
 
-const animalSchema = mongoose.Schema({
-    name: {
-        type: String, 
-        requerid: true
-    },
-    type: { 
-        type: String, 
-        requerid: true
-    },
-    color: {
-        type: String, 
-        requerid: true
-    },
-    keeper: {
-        type: Schema,
-        requerid: true
-    }
+const api = express.Router()
 
-})
+api.post('/registerAnimal', registerAnimal)
+api.delete('/deleteAnimal/:id', deleteAnimal)
+api.put('/updateAnimal/:id', updateAnimal)
+api.get('/getAllAnimals', getAllAnimals)
 
-export default mongoose.model('animal', animalSchema)
+export default api
